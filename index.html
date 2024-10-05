@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saklar Tema Gelap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+            text-align: center;
+            margin-top: 50px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        #switchButton {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.5s;
+        }
+
+        #switchButton.night {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="greeting">Selamat Siang!</h1>
+    <button id="switchButton" onclick="toggleTheme()">Switch to Night</button>
+
+    <script>
+        function toggleTheme() {
+            var body = document.body;
+            var button = document.getElementById('switchButton');
+            var greeting = document.getElementById('greeting');
+
+            // Toggle theme
+            if (body.style.backgroundColor === 'white') {
+                body.style.backgroundColor = 'black';
+                body.style.color = 'white';
+                greeting.textContent = 'Selamat Malam!';
+                button.textContent = 'Switch to Day';
+                button.classList.add('night');
+            } else {
+                body.style.backgroundColor = 'white';
+                body.style.color = 'black';
+                greeting.textContent = 'Selamat Siang!';
+                button.textContent = 'Switch to Night';
+                button.classList.remove('night');
+            }
+        }
+    </script>
+</body>
+</html>
